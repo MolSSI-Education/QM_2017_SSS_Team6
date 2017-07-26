@@ -3,38 +3,56 @@ import psi4
 
 np.set_printoptions(suppress=True, precision=4)
 
-mol = psi4.geometry("""
-O
-H 1 1.1
-H 1 1.1 2 104
-""")
+def mol():
+    mol = psi4.geometry("""
+    O
+    H 1 1.1
+    H 1 1.1 2 104
+    """)
 
-# Build a molecule
-mol.update_geometry()
-mol.print_out()
+    # Build a molecule
+    mol.update_geometry()
+    mol.print_out()
+    return mol
+
+def basis(mol):
+    # Build a basis
+    bas = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
+    return bas
+
+def mints(bas):
+    # Build a MintsHelper
+    mints = psi4.core.MintsHelper(bas)
+    return mints
+
+def core_hamiltonian(mints):
+    V = np.array(mints.ao_potential())
+    T = np.array(mints.ao_kinetic())
+    return T + V
+
+def get_JK(g, D):
+    J = np.einsum("pqrs,rs->pq", g, D)
+    K = np.einsum("prqs,rs->pq", g, D)
+    return J, K
+
+mol = mol()
+basis = basis(mol)
+mints = mints(basis)
+
+H = core_hamiltonian(mints)
 
 e_conv = 1.e-6
 d_conv = 1.e-6
 nel = 5
 damp_value = 0.20
 damp_start = 3
-
-# Build a basis
-bas = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
-bas.print_out()
-
-# Build a MintsHelper
-mints = psi4.core.MintsHelper(bas)
 nbf = mints.nbf()
+
+
 
 if (nbf > 100):
     raise Exception("More than 100 basis functions!")
 
-V = np.array(mints.ao_potential())
-T = np.array(mints.ao_kinetic())
-
-# Core Hamiltonian
-H = T + V
 
 S = np.array(mints.ao_overlap())
 g = np.array(mints.ao_eri())
@@ -66,18 +84,12 @@ F_old = None
 count_iter = 0
 E_diff = -1.0
 for iteration in range(25):
-    # F_pq = H_pq + 2 * g_pqrs D_rs - g_prqs D_rs
-
-    # g = (7, 7, 7, 7)
-    # D = (1, 1, 7, 7)
-    # Jsum = np.sum(g * D, axis=(2, 3))
-    J = np.einsum("pqrs,rs->pq", g, D)
-    K = np.einsum("prqs,rs->pq", g, D)
+    J, K = get_JK(g, D)
 
     F_new = H + 2.0 * J - K
 
     if(E_diff > 0.0):
-        count_iter += 1	
+        count_iter += 1
 
     # conditional iteration > start_damp
     if count_iter >= damp_start:
@@ -112,7 +124,10 @@ for iteration in range(25):
 
 print("SCF has finished!\n")
 
-psi4.set_output_file("output.dat")
-psi4.set_options({"scf_type": "pk"})
-psi4_energy = psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
+def psi4_energy():
+    psi4.set_output_file("output.dat")
+    psi4.set_options({"scf_type": "pk"})
+    return psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
+
+psi4_energy = psi4_energy()
 print("Energy matches Psi4 %s" % np.allclose(psi4_energy, E_total))
