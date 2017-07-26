@@ -82,43 +82,47 @@ E_old = 0.0
 F_old = None
 count_iter = 0
 E_diff = -1.0
-for iteration in range(25):
-    J, K = get_JK(g, D)
 
-    F_new = H + 2.0 * J - K
+def SCF():
+    for iteration in range(25):
+        J, K = get_JK(g, D)
 
-    if(E_diff > 0.0):
-        count_iter += 1
+        F_new = H + 2.0 * J - K
 
-    # conditional iteration > start_damp
-    if count_iter >= damp_start:
-        F = damp_value * F_old + (1.0 - damp_value) * F_new
-    else:
-        F = F_new
+        if(E_diff > 0.0):
+            count_iter += 1
 
-    F_old = F_new
+        # conditional iteration > start_damp
+        if count_iter >= damp_start:
+            F = damp_value * F_old + (1.0 - damp_value) * F_new
+        else:
+            F = F_new
 
-    # Build the AO gradient
-    grad = F @ D @ S - S @ D @ F
+        F_old = F_new
+        # F = (damp_value) Fold + (??) Fnew
 
-    grad_rms = np.mean(grad ** 2) ** 0.5
+        # Build the AO gradient
+        grad = F @ D @ S - S @ D @ F
 
-    # Build the energy
-    E_electric = np.sum((F + H) * D)
-    E_total = E_electric + mol.nuclear_repulsion_energy()
+        grad_rms = np.mean(grad ** 2) ** 0.5
 
-    E_diff = E_total - E_old
-    E_old = E_total
-    print("Iter=%3d  E = % 16.12f  E_diff = % 8.4e  D_diff = % 8.4e" %
-            (iteration, E_total, E_diff, grad_rms))
+        # Build the energy
+        E_electric = np.sum((F + H) * D)
+        E_total = E_electric + mol.nuclear_repulsion_energy()
 
-    # Break if e_conv and d_conv are met
-    if (E_diff < e_conv) and (grad_rms < d_conv):
-        break
+        E_diff = E_total - E_old
+        E_old = E_total
+        print("Iter=%3d  E = % 16.12f  E_diff = % 8.4e  D_diff = % 8.4e" %
+                (iteration, E_total, E_diff, grad_rms))
 
-    eps, C = diag(F, A)
-    Cocc = C[:, :nel]
-    D = Cocc @ Cocc.T
+        # Break if e_conv and d_conv are met
+        if (E_diff < e_conv) and (grad_rms < d_conv):
+            break
+
+        eps, C = diag(F, A)
+        Cocc = C[:, :nel]
+        D = Cocc @ Cocc.T
+    return E_total
 
 print("SCF has finished!\n")
 
