@@ -18,13 +18,13 @@ before_install:
 install:
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
   - bash miniconda.sh -b -p $HOME/miniconda
-  - pip install coverage
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - conda create -n sss python=3.5 psi4 pytest pytest-cov numpy lawrap cmake scipy numexpr mkl-include gcc-5-mp codecov -c intel -c psi4/label/dev -c psi4
+  - conda create -n sss python=3.5 psi4 pytest pytest-cov numpy lawrap cmake scipy numexpr mkl-include gcc-5-mp -c intel -c psi4/label/dev -c psi4
+  - pip install coverage
   - source activate sss
   - conda list
 
