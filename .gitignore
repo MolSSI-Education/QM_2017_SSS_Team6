@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#Psi4 extra files
+output.dat
+timer.dat
