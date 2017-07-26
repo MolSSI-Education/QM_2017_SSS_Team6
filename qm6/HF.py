@@ -135,5 +135,5 @@ def psi4_energy():
     psi4.set_options({"scf_type": "pk"})
     return psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
 
-psi4_energy = psi4_energy()
-print("Energy matches Psi4 %s" % np.allclose(psi4_energy, E_total))
+# psi4_energy = psi4_energy()
+# print("Energy matches Psi4 %s" % np.allclose(psi4_energy, E_total))
