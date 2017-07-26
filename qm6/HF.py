@@ -30,27 +30,6 @@ class HFcalc:
         self.count_iter = 0
         # self.E_diff = -1.0
 
-# def make_mol():
-#     mol = psi4.geometry("""
-#     O
-#     H 1 1.1
-#     H 1 1.1 2 104
-#     """)
-#
-#     # Build a molecule
-#     mol.update_geometry()
-#     return mol
-#
-# def set_basis(mol):
-#     # Build a basis
-#     bas = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
-#     return bas
-#
-# def set_mints(bas):
-#     # Build a MintsHelper
-#     mints = psi4.core.MintsHelper(bas)
-#     return mints
-
     def core_hamiltonian(self, mints):
         # Build the core hamiltonian
         V = np.array(mints.ao_potential())
@@ -69,35 +48,6 @@ class HFcalc:
         eps, Cp = np.linalg.eigh(Fp)
         C = self.A @ Cp
         return eps, C
-
-    # def init_SCF():
-    #     mol = make_mol()
-    #     basis = set_basis(mol)
-    #     mints = set_mints(basis)
-    #
-    #     H = core_hamiltonian(mints)
-    #
-    #     # Set convergence parameters, number of electrons, and damping options
-    #
-    #
-    #     # Set overlap matrix and 4-e integrals
-    #     S = np.array(mints.ao_overlap())
-    #     g = np.array(mints.ao_eri())
-    #
-    #     # Build Orthogonalizer
-    #     A = mints.ao_overlap()
-    #     A.power(-0.5, 1.e-14)
-    #     A = np.array(A)
-    #
-    #     eps, C = diag(H, A)
-    #     Cocc = C[:, :nel]
-    #     D = Cocc @ Cocc.T
-    #
-    #     E_old = 0.0
-    #     F_old = None
-    #     count_iter = 0
-    #     E_diff = -1.0
-    #     return g, D, H, S, mol, nel
 
     def SCF(self):
         eps, C = self.diag(self.H)
@@ -151,6 +101,3 @@ def psi4_energy(mol):
     psi4.set_output_file("output.dat")
     psi4.set_options({"scf_type": "pk"})
     return psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
-
-# psi4_energy = psi4_energy()
-# print("Energy matches Psi4 %s" % np.allclose(psi4_energy, E_total))
