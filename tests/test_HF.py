@@ -2,24 +2,11 @@
 Testing for the math.py module.
 """
 
-import friendly_computing_machine as fcm
+import qm6
 import pytest
 
 def test_HF():
-    mol = psi4.geometry("""
-    O
-    H 1 1.1
-    H 1 1.1 2 104
-    """)
-
-# Build a molecule
-mol.update_geometry()
-mol.print_out()
-
-# Build a basis
-bas = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
-bas.print_out()
-
+    assert np.allclose(qm6.HF.psi4_energy(), qm6.HF.SCF())
 # testdata  = [
 #     (2, 5, 10),
 #     (1, 2, 2),
