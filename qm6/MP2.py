@@ -1,6 +1,6 @@
 import numpy as np
 
-def MP2():
+def mp2():
     """
     Function that computes conventional MP2 correlation energy
     """
