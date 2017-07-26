@@ -124,6 +124,10 @@ def SCF():
         D = Cocc @ Cocc.T
     return E_total
 
+
+
+
+
 print("SCF has finished!\n")
 
 def psi4_energy():
