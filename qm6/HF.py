@@ -26,11 +26,13 @@ def mints(bas):
     return mints
 
 def core_hamiltonian(mints):
+    # Build the core hamiltonian
     V = np.array(mints.ao_potential())
     T = np.array(mints.ao_kinetic())
     return T + V
 
 def get_JK(g, D):
+    # Build the coloumb-repulsion and exchange integral tensors
     J = np.einsum("pqrs,rs->pq", g, D)
     K = np.einsum("prqs,rs->pq", g, D)
     return J, K
@@ -41,6 +43,7 @@ mints = mints(basis)
 
 H = core_hamiltonian(mints)
 
+# Set convergence parameters, number of electrons, and damping options
 e_conv = 1.e-6
 d_conv = 1.e-6
 nel = 5
@@ -53,18 +56,14 @@ nbf = mints.nbf()
 if (nbf > 100):
     raise Exception("More than 100 basis functions!")
 
-
+# Set overlap matrix and 4-e integrals
 S = np.array(mints.ao_overlap())
 g = np.array(mints.ao_eri())
 
-# print(S.shape)
-# print(I.shape)
-
+# Build Orthogonalizer
 A = mints.ao_overlap()
 A.power(-0.5, 1.e-14)
 A = np.array(A)
-
-# print(A @ S @ A)
 
 
 # Diagonalize Core H
