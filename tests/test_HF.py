@@ -15,7 +15,7 @@ def test_HF():
     """)
     mol.update_geometry()
     calc = qm6.HF.HFcalc(mol)
-    assert np.allclose(qm6.HF.psi4_energy(mol), calc.SCF(mol))
+    assert np.allclose(qm6.HF.psi4_energy(mol), calc.SCF())
 
 # testdata  = [
 #     (2, 5, 10),
