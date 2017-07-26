@@ -3,11 +3,20 @@ Testing for the math.py module.
 """
 
 import qm6
+import psi4
 import pytest
 import numpy as np
 
 def test_HF():
-    assert np.allclose(qm6.HF.psi4_energy(), qm6.HF.SCF())
+    mol = psi4.geometry("""
+    O
+    H 1 1.1
+    H 1 1.1 2 104
+    """)
+    mol.update_geometry()
+    calc = qm6.HF.HFcalc(mol)
+    assert np.allclose(qm6.HF.psi4_energy(mol), calc.SCF())
+
 # testdata  = [
 #     (2, 5, 10),
 #     (1, 2, 2),
