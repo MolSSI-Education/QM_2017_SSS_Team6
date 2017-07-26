@@ -142,9 +142,10 @@ class HFcalc:
             eps, C = self.diag(F)
             Cocc = C[:, :self.nel]
             D = Cocc @ Cocc.T
+        print("SCF has finished!\n")
         return E_total
 
-print("SCF has finished!\n")
+
 
 def psi4_energy(mol):
     psi4.set_output_file("output.dat")
