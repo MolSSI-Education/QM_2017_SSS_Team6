@@ -4,6 +4,7 @@ Testing for the math.py module.
 
 import qm6
 import pytest
+import numpy as np
 
 def test_HF():
     assert np.allclose(qm6.HF.psi4_energy(), qm6.HF.SCF())
