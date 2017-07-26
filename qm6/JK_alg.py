@@ -24,13 +24,15 @@ def build_dfJK(mol, C, D):
     metric = np.squeeze(metric) # remove the 1-dimensions
     #TODO convert all einsums into np.dots to make code faster
     # Compute (P|ls)
-    Pls = np.einsum('pq,qls->pls', metric, Qls_tilde)
+    Pls = np.dot(metric, Qls_tilde.transpose(1,0,2))
     # Compute J
-    ChiP = np.einsum('pls,ls->p', Pls, D) 
-    J = np.einsum('mnp,p->mn', Pls.transpose(1,2,0), ChiP)
+    ChiP = np.dot(Pls.reshape(Pls.shape[0],-1), D.reshape(-1))
+    J = np.dot(Pls.transpose(1,2,0), ChiP)
     # Compute K 
-    Eta1_Pmup = np.einsum('msP,sp->Pmp', Pls.transpose(1,2,0), C[:,:5])
-    Eta2_Pnup = np.einsum('Pnl,lp->Pnp', Pls, C[:,:5])
-    K = np.einsum('Pmp,Pnp->mn', Eta1_Pmup, Eta2_Pnup) 
+    Eta1_Pmup = np.dot(Pls.transpose(2,0,1), C[:,:5]).transpose(1,0,2)
+	Eta1_Pmup = Eta1_Pmup.transpose(1,0,2).reshape(Eta1_Pmup.shape[1],-1) # make it become a mu x Pp matrix
+    Eta2_Pnup = np.dot(Pls, C[:,:5])
+	Eta2_Pnup.transpose(1,0,2).reshape(Eta2_Pnup.shape[1],-1).T 		  # make it become a Pp x nu matrix
+    K = np.dot(Eta1_Pmup, Eta2_Pnup)
 
     return J, K
