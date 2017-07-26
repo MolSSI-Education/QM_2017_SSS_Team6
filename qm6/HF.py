@@ -76,14 +76,14 @@ for iteration in range(25):
 
     F_new = H + 2.0 * J - K
 
-	F = F_new
-
     if(E_diff > 0.0):
         count_iter += 1	
 
     # conditional iteration > start_damp
     if count_iter >= damp_start:
         F = damp_value * F_old + (1.0 - damp_value) * F_new
+    else:
+        F = F_new
 
     F_old = F_new
     # F = (damp_value) Fold + (??) Fnew
