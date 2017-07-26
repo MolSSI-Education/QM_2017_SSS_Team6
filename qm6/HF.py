@@ -17,7 +17,7 @@ e_conv = 1.e-6
 d_conv = 1.e-6
 nel = 5
 damp_value = 0.20
-damp_start = 5
+damp_start = 3
 
 # Build a basis
 bas = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
@@ -63,6 +63,8 @@ D = Cocc @ Cocc.T
 
 E_old = 0.0
 F_old = None
+count_iter = 0
+E_diff = -1.0
 for iteration in range(25):
     # F_pq = H_pq + 2 * g_pqrs D_rs - g_prqs D_rs
 
@@ -74,8 +76,11 @@ for iteration in range(25):
 
     F_new = H + 2.0 * J - K
 
+    if(E_diff > 0.0):
+        count_iter += 1	
+
     # conditional iteration > start_damp
-    if iteration >= damp_start:
+    if count_iter >= damp_start:
         F = damp_value * F_old + (1.0 - damp_value) * F_new
     else:
         F = F_new
