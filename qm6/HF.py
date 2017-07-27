@@ -94,20 +94,3 @@ class HFcalc:
             D = Cocc @ Cocc.T
         print("SCF has finished!\n")
         return E_total
-
-
-
-<<<<<<< HEAD
-
-
-
-
-print("SCF has finished!\n")
-
-def psi4_energy():
-=======
-def psi4_energy(mol):
->>>>>>> upstream/master
-    psi4.set_output_file("output.dat")
-    psi4.set_options({"scf_type": "pk"})
-    return psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
