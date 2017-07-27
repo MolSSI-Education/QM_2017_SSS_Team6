@@ -103,14 +103,14 @@ for iteration in range(100):
     # F = (damp_value) F_old + (??) F_new
 
 
-    if(E_diff > 0.0):
+    """ if(E_diff > 0.0):
         count_iter += 1
 
     if(count_iter >= damp_start):
         F = damp_value * F_old + (1.0 - damp_value) * F_new
         count_iter = 0
 
-    F_old = F_new
+    F_old = F_new """
 
     # Build the AO gradient
     grad = F @ D @ S - S @ D @ F
@@ -119,7 +119,7 @@ for iteration in range(100):
     E_electric = np.sum((F + H) * D)
     E_total = E_electric + mol.nuclear_repulsion_energy()
     E_diff = E_total - E_old
-    print("%d %16.12f %8.8f %8.8f" % (iteration, E_total, E_diff, grad_rms))
+    print("% d % 16.12f % 8.8f % 8.8f" % (iteration, E_total, E_diff, grad_rms))
     E_old = E_total
 
     # break if convergence is met
@@ -128,27 +128,12 @@ for iteration in range(100):
 
     r = A.T @ grad @ A
     r_list.append(r)
-
-    eps, C = diag(F, A)
-    Cocc = C[:, :nel]
-    D = Cocc @ Cocc.T
-
     fock_list.append(F)
-    # B = np.dot(r.T,r)
-    # print(B.shape)
-    # print(np.ones(B.shape[1])[None,:])
-	
-    # B = np.r_[B,-np.ones(len(B[:,0]))]
-    # B = np.c_[B,-np.ones(len(B[0,:]))]
-    # B = np.r_[B,-np.ones(B.shape[1])[None,:]]
-    # B[-1,-1] = 0.
 
-    if (iteration > 10):
+    if (iteration > 5):
         fock_list.pop(0)
         r_list.pop(0)
         B = np.dot(r.T,r)
-        # print(B.shape)
-        # print(np.ones(B.shape[1]))
         B = np.c_[B,-np.ones(len(B[0,:]))]
         B = np.r_[B,-np.ones(B.shape[1])[None,:]]
         B[-1,-1] = 0.
@@ -158,14 +143,25 @@ for iteration in range(100):
         vec[-1] = -1
         # print(vec)
         coeff =  np.linalg.solve(B, vec) 
-        np.sum(coeff)
+        # print(np.sum(coeff))
         # print()
         # print(coeff)
         # print(np.sum(coeff))
         coeff = coeff[:-1]
-        # print(len(coeff))
-        F = np.dot(coeff,F)
+        print(coeff.shape)
+        # print(coeff)
+        # print(coeff[0])
+        # print(fock_list[0])
+        # print(coeff[0] * fock_list[0])
+        # coeff_len = len(coeff) * len(coeff)
+        F_new2 = np.zeros((len(coeff),len(coeff)))
+        for j in range(len(coeff)-1):
+            F_new2 += coeff[j] * fock_list[j]
+        F = F_new2
 
+    eps, C = diag(F, A)
+    Cocc = C[:, :nel]
+    D = Cocc @ Cocc.T
 
 
 print("SCF done. \n")
@@ -177,7 +173,7 @@ print("SCF done. \n")
 # Exercise
 # np.sum(np.diag(A@B)) == np.sum(A*B)
 
-psi4.set_options({"scf_type": "pk"})
-psi4_energy = psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
+# psi4.set_options({"scf_type": "pk"})
+# psi4_energy = psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
 
-print("Energy matchees psi4 %s" % np.allclose(psi4_energy, E_total))
+# print("Energy matchees psi4 %s" % np.allclose(psi4_energy, E_total))
