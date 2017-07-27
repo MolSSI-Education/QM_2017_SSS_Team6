@@ -109,7 +109,6 @@ class HFcalc:
                 if iteration > 4:
                     F = self.DIIS_step()
 
-
             # Build the energy
             E_electric = np.sum((F + self.H) * D)
             E_total = E_electric + self.mol.nuclear_repulsion_energy()
@@ -126,51 +125,6 @@ class HFcalc:
             eps, C = self.diag(F)
             Cocc = C[:, :self.nel]
             D = Cocc @ Cocc.T
-            # print(F)
-
-            # if self.DIIS:
-            #     if iteration < self.diis_vectors:
-            #         self.fock_array[iteration] = F
-            #         # r = self.A.T @ grad @ self.A
-            #         # print(r)
-            #         self.r_array[iteration] = self.A.T @ grad @ self.A
-            #     else:
-            #         self.fock_array = np.roll(self.fock_array, -1, axis=0)
-            #         self.r_array = np.roll(self.fock_array, -1, axis=0)
-            #         self.fock_array[-1] = F
-            #         self.r_array[-1] = self.A.T @ grad @ self.A
-            #     # B = np.dot(r.T,r)
-            #     # print(B.shape)
-            #     # print(np.ones(B.shape[1])[None,:])
-            #
-            #     # B = np.r_[B,-np.ones(len(B[:,0]))]
-            #     # B = np.c_[B,-np.ones(len(B[0,:]))]
-            #     # B = np.r_[B,-np.ones(B.shape[1])[None,:]]
-            #     # B[-1,-1] = 0.
-            #     if iteration > 5:
-            #         F = self.DIIS_step()
-            #         # print(F)
-            #         # fock_list.pop(0)
-            #         # r_list.pop(0)
-            #         # B = np.dot(r.T,r)
-            #         # # print(B.shape)
-            #         # # print(np.ones(B.shape[1]))
-            #         # B = np.c_[B,-np.ones(len(B[0,:]))]
-            #         # B = np.r_[B,-np.ones(B.shape[1])[None,:]]
-            #         # B[-1,-1] = 0.
-            #         # # print(B.shape)
-            #         # vec = np.zeros(B.shape[1])  # [:,None]])
-            #         # # vec.pop(0)
-            #         # vec[-1] = -1
-            #         # # print(vec)
-            #         # coeff =  np.linalg.solve(B, vec)
-            #         # np.sum(coeff)
-            #         # # print()
-            #         # # print(coeff)
-            #         # # print(np.sum(coeff))
-            #         # coeff = coeff[:-1]
-            #         # # print(len(coeff))
-            #         # F = np.dot(coeff,F)
         print("SCF has finished!\n")
         return E_total
 
