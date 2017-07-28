@@ -27,6 +27,7 @@ bas.print_out()
 mints = psi4.core.MintsHelper(bas)
 nbf = mints.nbf()
 
+
 if(nbf > 100):
     raise Exception("Too large basis set")
 
@@ -142,7 +143,7 @@ for iteration in range(100):
         # vec.pop(0)
         vec[-1] = -1
         # print(vec)
-        coeff =  np.linalg.solve(B, vec) 
+        coeff =  np.linalg.solve(B, vec)
         # print(np.sum(coeff))
         # print()
         # print(coeff)
