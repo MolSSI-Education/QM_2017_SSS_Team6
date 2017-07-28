@@ -4,7 +4,10 @@ import psi4
 np.set_printoptions(suppress=True, precision=4)
 
 class HFcalc:
-    def __init__(self, mol_, basis_ = "aug-cc-PVDZ"):
+    def __init__(self, mol_, basis_ = "aug-cc-PVDZ", DIIS_ = False):
+        self.DIIS = DIIS_
+        if self.DIIS:
+            self.diis_vectors = 7
         self.mol = mol_
         self.basis = psi4.core.BasisSet.build(self.mol, target=basis_)
         self.mints = psi4.core.MintsHelper(self.basis)
@@ -49,7 +52,23 @@ class HFcalc:
         C = self.A @ Cp
         return eps, C
 
+    def DIIS_step(self):
+        B = -1*np.ones((self.diis_vectors+1, self.diis_vectors+1))
+        B[-1,-1] = 0
+        for i in range(self.diis_vectors):
+            for j in range(i, self.diis_vectors):
+                ri_dot_rj = np.dot(self.r_array[i].flatten(),self.r_array[j].flatten())
+                B[i,j] = B[j,i] = ri_dot_rj
+        vec = np.zeros((self.diis_vectors+1))  # [:,None]])
+        vec[-1] = -1
+        coeff =  np.linalg.solve(B, vec)
+        coeff = coeff[:-1]
+        return np.einsum("i,ijk->jk", coeff, self.fock_array)
+
     def SCF(self):
+        if self.DIIS:
+            self.fock_array = np.zeros([self.diis_vectors]+list(self.H.shape))
+            self.r_array = np.zeros([self.diis_vectors]+list(self.H.shape))
         eps, C = self.diag(self.H)
         Cocc = C[:, :self.nel]
         D = Cocc @ Cocc.T
@@ -75,6 +94,20 @@ class HFcalc:
             grad = F @ D @ self.S - self.S @ D @ F
 
             grad_rms = np.mean(grad ** 2) ** 0.5
+
+            if self.DIIS:
+                if iteration < self.diis_vectors:
+                    self.fock_array[iteration] = F
+                    # r = self.A.T @ grad @ self.A
+                    # print(r)
+                    self.r_array[iteration] = self.A.T @ grad @ self.A
+                else:
+                    self.fock_array = np.roll(self.fock_array, -1, axis=0)
+                    self.r_array = np.roll(self.fock_array, -1, axis=0)
+                    self.fock_array[-1] = F
+                    self.r_array[-1] = self.A.T @ grad @ self.A
+                if iteration > 4:
+                    F = self.DIIS_step()
 
             # Build the energy
             E_electric = np.sum((F + self.H) * D)
