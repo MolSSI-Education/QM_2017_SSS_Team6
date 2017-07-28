@@ -1,4 +1,5 @@
-import psi4, qm6
+import psi4
+import qm6
 
 mol = psi4.geometry("""
 O
