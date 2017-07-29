@@ -26,14 +26,14 @@ class HFcalc:
         self.g = np.array(self.mints.ao_eri())
 
         # Needed for Density fitting
-        self.aux = psi4.core.BasisSet.build(mol, fitrole="JKFIT", other=basis_)
+        self.aux = psi4.core.BasisSet.build(self.mol, fitrole="JKFIT", other=basis_)
         self.zero_bas = psi4.core.BasisSet.zero_ao_basis_set()
-        Qls_tilde = mints.ao_eri(zero_bas, aux, bas, bas)
+        Qls_tilde = self.mints.ao_eri(self.zero_bas, self.aux, self.basis, self.basis)
         Qls_tilde = np.squeeze(Qls_tilde) # remove the 1-dimensions
-        metric = mints.ao_eri(zero_bas, aux, zero_bas, aux)
+        metric = self.mints.ao_eri(self.zero_bas, self.aux, self.zero_bas, self.aux)
         metric.power(-0.5, 1.e-14)
         metric = np.squeeze(metric) # remove the 1-dimensions
-        self.Pls = np.einsum('pq, qls->pls', Qls_tilde, metric)
+        self.Pls = np.einsum('pq, qls->pls', metric, Qls_tilde)
 
         # Build Orthogonalizer
         self.A = self.mints.ao_overlap()
