@@ -4,8 +4,9 @@ import psi4
 np.set_printoptions(suppress=True, precision=4)
 
 class HFcalc:
-    def __init__(self, mol_, basis_ = "aug-cc-PVDZ", DIIS_ = False):
+    def __init__(self, mol_, basis_ = "aug-cc-PVDZ", DIIS_ = False, dfJK = False):
         self.DIIS = DIIS_
+        self.dfJK = dfJK
         if self.DIIS:
             self.diis_vectors = 7
         self.mol = mol_
@@ -23,6 +24,16 @@ class HFcalc:
         self.nel = 5
         self.S = np.array(self.mints.ao_overlap())
         self.g = np.array(self.mints.ao_eri())
+
+        # Needed for Density fitting
+        self.aux = psi4.core.BasisSet.build(mol, fitrole="JKFIT", other=basis_)
+        self.zero_bas = psi4.core.BasisSet.zero_ao_basis_set()
+        Qls_tilde = mints.ao_eri(zero_bas, aux, bas, bas)
+        Qls_tilde = np.squeeze(Qls_tilde) # remove the 1-dimensions
+        metric = mints.ao_eri(zero_bas, aux, zero_bas, aux)
+        metric.power(-0.5, 1.e-14)
+        metric = np.squeeze(metric) # remove the 1-dimensions
+        self.Pls = np.einsum('pq, qls->pls', Qls_tilde, metric)
 
         # Build Orthogonalizer
         self.A = self.mints.ao_overlap()
@@ -45,7 +56,21 @@ class HFcalc:
         K = np.einsum("prqs,rs->pq", self.g, D)
         return J, K
 
-# Diagonalize Core H
+    def get_dfJK(self, Cocc, D):
+        """
+        Function that builds the density-fitted coulomb and exchange integral tensors
+        """
+        Pls = self.Pls
+        # Compute J
+        ChiP = np.einsum('pls,ls->p', Pls, D)
+        J = np.einsum('pmn,p->mn', Pls, ChiP)
+        # Compute K
+        Eta1_Pmup = np.einsum('Pms,sp->Pmp', Pls, Cocc)
+        Eta2_Pnup = np.einsum('Pnl,lp->Pnp', Pls, Cocc)
+        K = np.einsum('Pmp,Pnp->mn', Eta1_Pmup, Eta2_Pnup)
+        return J, K
+
+    # Diagonalize Core H
     def diag(self, F):
         Fp = self.A.T @ F @ self.A
         eps, Cp = np.linalg.eigh(Fp)
@@ -74,7 +99,10 @@ class HFcalc:
         D = Cocc @ Cocc.T
         E_diff = -1.0
         for iteration in range(25):
-            J, K = self.get_JK(D)
+            if self.dfJK:
+                J, K = self.get_dfJK(Cocc, D)
+            else:    
+                J, K = self.get_JK(D)
 
             F_new = self.H + 2.0 * J - K
 
