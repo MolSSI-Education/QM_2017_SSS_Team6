@@ -1,0 +1,1 @@
+/root/anaconda3/envs/sss/bin/c++  -fPIC   -shared  -o jk.cpython-35m-x86_64-linux-gnu.so CMakeFiles/jk.dir/jk.cpp.o 
