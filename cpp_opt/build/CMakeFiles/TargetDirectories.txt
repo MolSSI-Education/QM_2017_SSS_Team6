@@ -1,3 +1,0 @@
-/root/software_summer_school/JK_speedup_challenge/jkcomp/build/CMakeFiles/rebuild_cache.dir
-/root/software_summer_school/JK_speedup_challenge/jkcomp/build/CMakeFiles/edit_cache.dir
-/root/software_summer_school/JK_speedup_challenge/jkcomp/build/CMakeFiles/jk.dir
