@@ -29,11 +29,12 @@ td = time.time()
 
 # Your implementation
 t0 = time.time()
-J, K = jk.form_JK(I,D)  
+J, K = jk.form_JK(I,D - np.identity(D.shape[0])*D*0.5)  
+#J, K = jk.form_JK(I,D)  
 t1 = time.time()
 
-print(J-J_ref)
-print(np.linalg.norm(J-J_ref))
+print(K-K_ref)
+print(np.linalg.norm(K-K_ref))
 
 # Make sure your implementation is correct
 print("J is correct: %s" % np.allclose(J, J_ref))

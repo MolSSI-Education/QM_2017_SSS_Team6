@@ -1,4 +1,4 @@
-# Install script for directory: /root/software_summer_school/JK_speedup_challenge/jkcomp
+# Install script for directory: /home/jeherr/gits/QM_2017_SSS_Team6/cpp_opt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/software_summer_school/JK_speedup_challenge/jkcomp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jeherr/gits/QM_2017_SSS_Team6/cpp_opt/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
