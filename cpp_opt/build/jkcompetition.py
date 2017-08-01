@@ -2,6 +2,7 @@ import numpy as np
 import psi4
 import jk
 import time
+import timeit
 # Make sure we get the same random array
 np.random.seed(0)
 
@@ -13,7 +14,7 @@ H 1 1.1 2 104
 """)
 
 # Build a ERI tensor
-basis = psi4.core.BasisSet.build(mol, target="aug-cc-pVDZ")
+basis = psi4.core.BasisSet.build(mol, target="aug-cc-pVQZ")
 mints = psi4.core.MintsHelper(basis)
 I = np.array(mints.ao_eri())
 # Symmetric random density
@@ -29,10 +30,8 @@ td = time.time()
 
 # Your implementation
 t0 = time.time()
-J, K = jk.form_JK(I,D)
+J, K = jk.form_JK(I,D) 
 t1 = time.time()
-
-print(np.linalg.norm(J-J_ref))
 print(np.linalg.norm(K-K_ref))
 
 # Make sure your implementation is correct

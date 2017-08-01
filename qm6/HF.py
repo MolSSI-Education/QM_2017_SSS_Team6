@@ -82,8 +82,10 @@ class HFcalc:
         B[-1,-1] = 0
         for i in range(self.diis_vectors):
             for j in range(i, self.diis_vectors):
-                ri_dot_rj = np.dot(self.r_array[i].flatten(),self.r_array[j].flatten())
+                ri_dot_rj = np.vdot(self.r_array[i],self.r_array[j])
+                # print(i,j,ri_dot_rj)
                 B[i,j] = B[j,i] = ri_dot_rj
+        # print(B)
         vec = np.zeros((self.diis_vectors+1))  # [:,None]])
         vec[-1] = -1
         coeff =  np.linalg.solve(B, vec)
@@ -110,10 +112,10 @@ class HFcalc:
                 self.count_iter += 1
 
             # conditional iteration > start_damp
-            if self.count_iter >= self.damp_start:
-                F = self.damp_value * F_old + (1.0 - self.damp_value) * F_new
-            else:
-                F = F_new
+            # if self.count_iter >= self.damp_start:
+            #     F = self.damp_value * F_old + (1.0 - self.damp_value) * F_new
+            # else:
+            F = F_new
 
             F_old = F_new
             # F = (damp_value) Fold + (??) Fnew
@@ -131,10 +133,11 @@ class HFcalc:
                     self.r_array[iteration] = self.A.T @ grad @ self.A
                 else:
                     self.fock_array = np.roll(self.fock_array, -1, axis=0)
-                    self.r_array = np.roll(self.fock_array, -1, axis=0)
+                    self.r_array = np.roll(self.r_array, -1, axis=0)
                     self.fock_array[-1] = F
                     self.r_array[-1] = self.A.T @ grad @ self.A
                 if iteration > 4:
+                    # print(self.r_array[-1])
                     F = self.DIIS_step()
 
             # Build the energy
@@ -161,4 +164,4 @@ class HFcalc:
 def psi4_energy(mol):
     psi4.set_output_file("output.dat")
     psi4.set_options({"scf_type": "pk"})
-    return psi4.energy("SCF/aug-cc-pVDZ", molecule=mol)
+    return psi4.energy("SCF/aug-cc-PVDZ", molecule=mol)
