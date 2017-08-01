@@ -1,6 +1,6 @@
 import numpy as np
 import psi4
-import jk 
+import jk
 import time
 import timeit
 # Make sure we get the same random array
@@ -32,8 +32,6 @@ td = time.time()
 t0 = time.time()
 J, K = jk.form_JK(I,D) 
 t1 = time.time()
-
-print(K-K_ref)
 print(np.linalg.norm(K-K_ref))
 
 # Make sure your implementation is correct

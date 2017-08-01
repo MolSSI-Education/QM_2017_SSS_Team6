@@ -12,7 +12,7 @@ std::vector<py::array> form_JK(py::array_t<double> I,
 {
     py::buffer_info D_info = D.request();
     py::buffer_info I_info = I.request();
-    size_t n = D_info.shape[0];  
+    size_t n = D_info.shape[0];
 
     const double*D_data = static_cast<double*>(D_info.ptr);
     const double*I_data = static_cast<double*>(I_info.ptr);
@@ -57,8 +57,8 @@ std::vector<py::array> form_JK(py::array_t<double> I,
             K_data[qn + p] = kqp;
             K_data[pn + q] = kqp;
         }
-    }
-     
+}
+
     py::buffer_info Jbuf =
         {
         J_data.data(),
