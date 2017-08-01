@@ -29,6 +29,7 @@ std::vector<py::array> form_JK(py::array_t<double> I,
 	size_t pn = p * n;
         for(size_t q = p; q < n; q++)
         {
+            double jqp = 0.0;
             size_t pn3qn2 = pn3 + q * n2;
             for(size_t r = 0; r < n; r++)
             {
@@ -37,20 +38,24 @@ std::vector<py::array> form_JK(py::array_t<double> I,
                 {
                     if(s == r)
                     {
-                    J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s];
+                    //J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s];
+                    jqp += I_data[pn3qn2rn + s] * D_data[r * n + s];
                     }
                     else
                     {
                     //J_data[p*n + q] += I_data[p * n3 + q * n2 + r * n + s] * D_data[r * n + s]*2.0;
-                    J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s]*2.0;
+                    //J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s]*2.0;
+                    jqp += I_data[pn3qn2rn + s] * D_data[r * n + s]*2.0;
                     }
                 }
             }
-        J_data[q*n + p] = J_data[p*n + q];
+        J_data[q*n + p] = jqp;
+        J_data[p*n + q] = jqp;
         }
     
         for(size_t q = p; q < n; q++)
         {
+            double kqp = 0.0;
             size_t pn3qn = pn3 + q * n;
             for(size_t r = 0; r < n; r++)
             {
@@ -58,11 +63,13 @@ std::vector<py::array> form_JK(py::array_t<double> I,
                 for(size_t s = 0; s < n; s++)
                 {
                     //K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s];
-                    K_data[pn + q] += I_data[pn3qnrn2 + s] * D_data[r * n + s];
+                    //K_data[pn + q] += I_data[pn3qnrn2 + s] * D_data[r * n + s];
+                    kqp += I_data[pn3qnrn2 + s] * D_data[r * n + s];
                     
                 }
             }
-            K_data[q*n + p] = K_data[pn + q];
+            K_data[q*n + p] = kqp;
+            K_data[pn + q] = kqp;
         }
     }
      
