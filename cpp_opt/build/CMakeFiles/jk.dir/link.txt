@@ -1,1 +1,0 @@
-/Users/nakul/miniconda/envs/sss/bin/c++   -bundle -Wl,-headerpad_max_install_names  -o jk.cpython-35m-darwin.so CMakeFiles/jk.dir/jk.cpp.o -undefined dynamic_lookup 
