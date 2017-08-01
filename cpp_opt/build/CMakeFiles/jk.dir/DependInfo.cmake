@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/software_summer_school/JK_speedup_challenge/jkcomp/jk.cpp" "/root/software_summer_school/JK_speedup_challenge/jkcomp/build/CMakeFiles/jk.dir/jk.cpp.o"
+  "/Users/nakul/molssi-sss/git/QM_2017_SSS_Team6/cpp_opt/jk.cpp" "/Users/nakul/molssi-sss/git/QM_2017_SSS_Team6/cpp_opt/build/CMakeFiles/jk.dir/jk.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/root/anaconda3/envs/sss/include"
-  "/root/anaconda3/envs/sss/include/python3.5m"
+  "/Users/nakul/miniconda/envs/sss/include"
+  "/Users/nakul/miniconda/envs/sss/include/python3.5m"
   )
 
 # Targets to which this target links.

@@ -11,7 +11,7 @@ std::vector<py::array> form_JK(py::array_t<double> I,
 {
     py::buffer_info D_info = D.request();
     py::buffer_info I_info = I.request();
-    size_t n = D_info.shape[0];  
+    size_t n = D_info.shape[0];
 
     const double*D_data = static_cast<double*>(D_info.ptr);
     const double*I_data = static_cast<double*>(I_info.ptr);
@@ -23,47 +23,27 @@ std::vector<py::array> form_JK(py::array_t<double> I,
    // Form J and K
     for(size_t p = 0; p < n; p++)
     {
-        for(size_t q = p; q < n; q++)
+        for(size_t q = 0; q <= p; q++)
         {
             for(size_t r = 0; r < n; r++)
             {
-                for(size_t s = r; s < n; s++)
+                for(size_t s = 0; s < r; s++)
                 {
-                    if(s == r)
-                    {
-                    J_data[p*n + q] += I_data[p * n3 + q * n2 + r * n + s] * D_data[r * n + s];
-                    }
-                    else
-                    {
                     J_data[p*n + q] += I_data[p * n3 + q * n2 + r * n + s] * D_data[r * n + s]*2.0;
-                    }
-                    
                 }
+                    J_data[p*n + q] += I_data[p * n3 + q * n2 + r * n + r] * D_data[r * n + r];
             }
-        J_data[q*n + p] = J_data[p*n + q];
+            J_data[q*n + p] = J_data[p*n + q];
+
+            for(size_t r = 0; r < n; r++)
+              for(size_t s = 0; s < n; s++)
+              {
+                K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s];
+              }
+              K_data[q*n + p] = K_data[p*n + q];
         }
-    
-        for(size_t r = p; r < n; r++)
-        {
-            for(size_t q = 0; q < n; q++)
-            {
-                for(size_t s = r; s < n; s++)
-                {
-                    if(s == r)
-                    {
-                    K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s];
-                    }
-                    else
-                    {
-                    K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s]*2.0;
-                    }
-                    
-                }
-            }
-        K_data[r*n + p] = K_data[p*n + r];
-        }
-    }
-     
+}
+
     py::buffer_info Jbuf =
         {
         J_data.data(),

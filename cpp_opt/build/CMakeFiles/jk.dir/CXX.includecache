@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/root/anaconda3/envs/sss/include/pybind11/attr.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/attr.h
 cast.h
-/root/anaconda3/envs/sss/include/pybind11/cast.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/cast.h
 
-/root/anaconda3/envs/sss/include/pybind11/cast.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/cast.h
 pytypes.h
-/root/anaconda3/envs/sss/include/pybind11/pytypes.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pytypes.h
 typeid.h
-/root/anaconda3/envs/sss/include/pybind11/typeid.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/typeid.h
 descr.h
-/root/anaconda3/envs/sss/include/pybind11/descr.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/descr.h
 array
 -
 limits
 -
 
-/root/anaconda3/envs/sss/include/pybind11/common.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/common.h
 Python.h
 -
 frameobject.h
@@ -50,21 +50,21 @@ typeindex
 type_traits
 -
 
-/root/anaconda3/envs/sss/include/pybind11/complex.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/complex.h
 pybind11.h
-/root/anaconda3/envs/sss/include/pybind11/pybind11.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pybind11.h
 complex
 -
 
-/root/anaconda3/envs/sss/include/pybind11/descr.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/descr.h
 common.h
-/root/anaconda3/envs/sss/include/pybind11/common.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/common.h
 
-/root/anaconda3/envs/sss/include/pybind11/numpy.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/numpy.h
 pybind11.h
-/root/anaconda3/envs/sss/include/pybind11/pybind11.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pybind11.h
 complex.h
-/root/anaconda3/envs/sss/include/pybind11/complex.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/complex.h
 numeric
 -
 algorithm
@@ -88,27 +88,27 @@ utility
 typeindex
 -
 
-/root/anaconda3/envs/sss/include/pybind11/options.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/options.h
 common.h
-/root/anaconda3/envs/sss/include/pybind11/common.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/common.h
 
-/root/anaconda3/envs/sss/include/pybind11/pybind11.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pybind11.h
 attr.h
-/root/anaconda3/envs/sss/include/pybind11/attr.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/attr.h
 options.h
-/root/anaconda3/envs/sss/include/pybind11/options.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/options.h
 
-/root/anaconda3/envs/sss/include/pybind11/pytypes.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pytypes.h
 common.h
-/root/anaconda3/envs/sss/include/pybind11/common.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/common.h
 utility
 -
 type_traits
 -
 
-/root/anaconda3/envs/sss/include/pybind11/stl.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/stl.h
 pybind11.h
-/root/anaconda3/envs/sss/include/pybind11/pybind11.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/pybind11.h
 set
 -
 unordered_set
@@ -128,7 +128,7 @@ optional
 experimental/optional
 -
 
-/root/anaconda3/envs/sss/include/pybind11/typeid.h
+/Users/nakul/miniconda/envs/sss/include/pybind11/typeid.h
 cstdio
 -
 cstdlib
@@ -136,13 +136,13 @@ cstdlib
 cxxabi.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/Python.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/Python.h
 patchlevel.h
-/root/anaconda3/envs/sss/include/python3.5m/patchlevel.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/patchlevel.h
 pyconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 pymacconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pymacconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymacconfig.h
 limits.h
 -
 stdio.h
@@ -160,245 +160,245 @@ stddef.h
 assert.h
 -
 pyport.h
-/root/anaconda3/envs/sss/include/python3.5m/pyport.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyport.h
 pymacro.h
-/root/anaconda3/envs/sss/include/python3.5m/pymacro.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymacro.h
 pyatomic.h
-/root/anaconda3/envs/sss/include/python3.5m/pyatomic.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyatomic.h
 pymath.h
-/root/anaconda3/envs/sss/include/python3.5m/pymath.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymath.h
 pytime.h
-/root/anaconda3/envs/sss/include/python3.5m/pytime.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pytime.h
 pymem.h
-/root/anaconda3/envs/sss/include/python3.5m/pymem.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymem.h
 object.h
-/root/anaconda3/envs/sss/include/python3.5m/object.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/object.h
 objimpl.h
-/root/anaconda3/envs/sss/include/python3.5m/objimpl.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/objimpl.h
 typeslots.h
-/root/anaconda3/envs/sss/include/python3.5m/typeslots.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/typeslots.h
 pyhash.h
-/root/anaconda3/envs/sss/include/python3.5m/pyhash.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyhash.h
 pydebug.h
-/root/anaconda3/envs/sss/include/python3.5m/pydebug.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pydebug.h
 bytearrayobject.h
-/root/anaconda3/envs/sss/include/python3.5m/bytearrayobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bytearrayobject.h
 bytesobject.h
-/root/anaconda3/envs/sss/include/python3.5m/bytesobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bytesobject.h
 unicodeobject.h
-/root/anaconda3/envs/sss/include/python3.5m/unicodeobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/unicodeobject.h
 longobject.h
-/root/anaconda3/envs/sss/include/python3.5m/longobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/longobject.h
 longintrepr.h
-/root/anaconda3/envs/sss/include/python3.5m/longintrepr.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/longintrepr.h
 boolobject.h
-/root/anaconda3/envs/sss/include/python3.5m/boolobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/boolobject.h
 floatobject.h
-/root/anaconda3/envs/sss/include/python3.5m/floatobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/floatobject.h
 complexobject.h
-/root/anaconda3/envs/sss/include/python3.5m/complexobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/complexobject.h
 rangeobject.h
-/root/anaconda3/envs/sss/include/python3.5m/rangeobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/rangeobject.h
 memoryobject.h
-/root/anaconda3/envs/sss/include/python3.5m/memoryobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/memoryobject.h
 tupleobject.h
-/root/anaconda3/envs/sss/include/python3.5m/tupleobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/tupleobject.h
 listobject.h
-/root/anaconda3/envs/sss/include/python3.5m/listobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/listobject.h
 dictobject.h
-/root/anaconda3/envs/sss/include/python3.5m/dictobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dictobject.h
 odictobject.h
-/root/anaconda3/envs/sss/include/python3.5m/odictobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/odictobject.h
 enumobject.h
-/root/anaconda3/envs/sss/include/python3.5m/enumobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/enumobject.h
 setobject.h
-/root/anaconda3/envs/sss/include/python3.5m/setobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/setobject.h
 methodobject.h
-/root/anaconda3/envs/sss/include/python3.5m/methodobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/methodobject.h
 moduleobject.h
-/root/anaconda3/envs/sss/include/python3.5m/moduleobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/moduleobject.h
 funcobject.h
-/root/anaconda3/envs/sss/include/python3.5m/funcobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/funcobject.h
 classobject.h
-/root/anaconda3/envs/sss/include/python3.5m/classobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/classobject.h
 fileobject.h
-/root/anaconda3/envs/sss/include/python3.5m/fileobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/fileobject.h
 pycapsule.h
-/root/anaconda3/envs/sss/include/python3.5m/pycapsule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pycapsule.h
 traceback.h
-/root/anaconda3/envs/sss/include/python3.5m/traceback.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/traceback.h
 sliceobject.h
-/root/anaconda3/envs/sss/include/python3.5m/sliceobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/sliceobject.h
 cellobject.h
-/root/anaconda3/envs/sss/include/python3.5m/cellobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/cellobject.h
 iterobject.h
-/root/anaconda3/envs/sss/include/python3.5m/iterobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/iterobject.h
 genobject.h
-/root/anaconda3/envs/sss/include/python3.5m/genobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/genobject.h
 descrobject.h
-/root/anaconda3/envs/sss/include/python3.5m/descrobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/descrobject.h
 warnings.h
-/root/anaconda3/envs/sss/include/python3.5m/warnings.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/warnings.h
 weakrefobject.h
-/root/anaconda3/envs/sss/include/python3.5m/weakrefobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/weakrefobject.h
 structseq.h
-/root/anaconda3/envs/sss/include/python3.5m/structseq.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/structseq.h
 namespaceobject.h
-/root/anaconda3/envs/sss/include/python3.5m/namespaceobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/namespaceobject.h
 codecs.h
-/root/anaconda3/envs/sss/include/python3.5m/codecs.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/codecs.h
 pyerrors.h
-/root/anaconda3/envs/sss/include/python3.5m/pyerrors.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyerrors.h
 pystate.h
-/root/anaconda3/envs/sss/include/python3.5m/pystate.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystate.h
 pyarena.h
-/root/anaconda3/envs/sss/include/python3.5m/pyarena.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyarena.h
 modsupport.h
-/root/anaconda3/envs/sss/include/python3.5m/modsupport.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/modsupport.h
 pythonrun.h
-/root/anaconda3/envs/sss/include/python3.5m/pythonrun.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pythonrun.h
 pylifecycle.h
-/root/anaconda3/envs/sss/include/python3.5m/pylifecycle.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pylifecycle.h
 ceval.h
-/root/anaconda3/envs/sss/include/python3.5m/ceval.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/ceval.h
 sysmodule.h
-/root/anaconda3/envs/sss/include/python3.5m/sysmodule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/sysmodule.h
 intrcheck.h
-/root/anaconda3/envs/sss/include/python3.5m/intrcheck.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/intrcheck.h
 import.h
-/root/anaconda3/envs/sss/include/python3.5m/import.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/import.h
 abstract.h
-/root/anaconda3/envs/sss/include/python3.5m/abstract.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/abstract.h
 bltinmodule.h
-/root/anaconda3/envs/sss/include/python3.5m/bltinmodule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bltinmodule.h
 compile.h
-/root/anaconda3/envs/sss/include/python3.5m/compile.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/compile.h
 eval.h
-/root/anaconda3/envs/sss/include/python3.5m/eval.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/eval.h
 pyctype.h
-/root/anaconda3/envs/sss/include/python3.5m/pyctype.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyctype.h
 pystrtod.h
-/root/anaconda3/envs/sss/include/python3.5m/pystrtod.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystrtod.h
 pystrcmp.h
-/root/anaconda3/envs/sss/include/python3.5m/pystrcmp.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystrcmp.h
 dtoa.h
-/root/anaconda3/envs/sss/include/python3.5m/dtoa.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dtoa.h
 fileutils.h
-/root/anaconda3/envs/sss/include/python3.5m/fileutils.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/fileutils.h
 pyfpe.h
-/root/anaconda3/envs/sss/include/python3.5m/pyfpe.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyfpe.h
 
-/root/anaconda3/envs/sss/include/python3.5m/abstract.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/abstract.h
 
-/root/anaconda3/envs/sss/include/python3.5m/bltinmodule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bltinmodule.h
 
-/root/anaconda3/envs/sss/include/python3.5m/boolobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/boolobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/bytearrayobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bytearrayobject.h
 stdarg.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/bytesobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/bytesobject.h
 stdarg.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/cellobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/cellobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/ceval.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/ceval.h
 
-/root/anaconda3/envs/sss/include/python3.5m/classobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/classobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/code.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/code.h
 
-/root/anaconda3/envs/sss/include/python3.5m/codecs.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/codecs.h
 
-/root/anaconda3/envs/sss/include/python3.5m/compile.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/compile.h
 code.h
-/root/anaconda3/envs/sss/include/python3.5m/code.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/code.h
 
-/root/anaconda3/envs/sss/include/python3.5m/complexobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/complexobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/descrobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/descrobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/dictobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dictobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/dtoa.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dtoa.h
 
-/root/anaconda3/envs/sss/include/python3.5m/dynamic_annotations.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dynamic_annotations.h
 
-/root/anaconda3/envs/sss/include/python3.5m/enumobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/enumobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/eval.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/eval.h
 
-/root/anaconda3/envs/sss/include/python3.5m/fileobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/fileobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/fileutils.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/fileutils.h
 
-/root/anaconda3/envs/sss/include/python3.5m/floatobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/floatobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/frameobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/frameobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/funcobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/funcobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/genobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/genobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/import.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/import.h
 
-/root/anaconda3/envs/sss/include/python3.5m/intrcheck.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/intrcheck.h
 
-/root/anaconda3/envs/sss/include/python3.5m/iterobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/iterobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/listobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/listobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/longintrepr.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/longintrepr.h
 
-/root/anaconda3/envs/sss/include/python3.5m/longobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/longobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/memoryobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/memoryobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/methodobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/methodobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/modsupport.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/modsupport.h
 stdarg.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/moduleobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/moduleobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/namespaceobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/namespaceobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/object.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/object.h
 
-/root/anaconda3/envs/sss/include/python3.5m/objimpl.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/objimpl.h
 pymem.h
-/root/anaconda3/envs/sss/include/python3.5m/pymem.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymem.h
 
-/root/anaconda3/envs/sss/include/python3.5m/odictobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/odictobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/patchlevel.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/patchlevel.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyarena.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyarena.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyatomic.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyatomic.h
 dynamic_annotations.h
-/root/anaconda3/envs/sss/include/python3.5m/dynamic_annotations.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/dynamic_annotations.h
 pyconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 stdatomic.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/pycapsule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pycapsule.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyctype.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyctype.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pydebug.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pydebug.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyerrors.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyerrors.h
 stdarg.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/pyfpe.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyfpe.h
 signal.h
 -
 setjmp.h
@@ -406,25 +406,25 @@ setjmp.h
 math.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/pyhash.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyhash.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pylifecycle.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pylifecycle.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pymacconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymacconfig.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pymacro.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymacro.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pymath.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymath.h
 pyconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pymem.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pymem.h
 pyport.h
-/root/anaconda3/envs/sss/include/python3.5m/pyport.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyport.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pyport.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyport.h
 pyconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 inttypes.h
 -
 stdint.h
@@ -462,41 +462,41 @@ ctype.h
 wctype.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/pystate.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystate.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pystrcmp.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystrcmp.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pystrtod.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystrtod.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pythonrun.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pythonrun.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pythread.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pythread.h
 
-/root/anaconda3/envs/sss/include/python3.5m/pytime.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pytime.h
 pyconfig.h
-/root/anaconda3/envs/sss/include/python3.5m/pyconfig.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pyconfig.h
 object.h
-/root/anaconda3/envs/sss/include/python3.5m/object.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/object.h
 
-/root/anaconda3/envs/sss/include/python3.5m/rangeobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/rangeobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/setobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/setobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/sliceobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/sliceobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/structseq.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/structseq.h
 
-/root/anaconda3/envs/sss/include/python3.5m/sysmodule.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/sysmodule.h
 
-/root/anaconda3/envs/sss/include/python3.5m/traceback.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/traceback.h
 pystate.h
-/root/anaconda3/envs/sss/include/python3.5m/pystate.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/pystate.h
 
-/root/anaconda3/envs/sss/include/python3.5m/tupleobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/tupleobject.h
 
-/root/anaconda3/envs/sss/include/python3.5m/typeslots.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/typeslots.h
 
-/root/anaconda3/envs/sss/include/python3.5m/unicodeobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/unicodeobject.h
 stdarg.h
 -
 ctype.h
@@ -506,11 +506,11 @@ time.h
 wchar.h
 -
 
-/root/anaconda3/envs/sss/include/python3.5m/warnings.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/warnings.h
 
-/root/anaconda3/envs/sss/include/python3.5m/weakrefobject.h
+/Users/nakul/miniconda/envs/sss/include/python3.5m/weakrefobject.h
 
-/root/software_summer_school/JK_speedup_challenge/jkcomp/jk.cpp
+/Users/nakul/molssi-sss/git/QM_2017_SSS_Team6/cpp_opt/jk.cpp
 pybind11/pybind11.h
 -
 pybind11/stl.h

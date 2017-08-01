@@ -1,6 +1,6 @@
 import numpy as np
 import psi4
-import jk 
+import jk
 import time
 # Make sure we get the same random array
 np.random.seed(0)
@@ -29,11 +29,11 @@ td = time.time()
 
 # Your implementation
 t0 = time.time()
-J, K = jk.form_JK(I,D)  
+J, K = jk.form_JK(I,D)
 t1 = time.time()
 
-print(J-J_ref)
 print(np.linalg.norm(J-J_ref))
+print(np.linalg.norm(K-K_ref))
 
 # Make sure your implementation is correct
 print("J is correct: %s" % np.allclose(J, J_ref))
