@@ -1,3 +1,0 @@
-/home/jeherr/gits/QM_2017_SSS_Team6/cpp_opt/build/CMakeFiles/edit_cache.dir
-/home/jeherr/gits/QM_2017_SSS_Team6/cpp_opt/build/CMakeFiles/rebuild_cache.dir
-/home/jeherr/gits/QM_2017_SSS_Team6/cpp_opt/build/CMakeFiles/jk.dir
