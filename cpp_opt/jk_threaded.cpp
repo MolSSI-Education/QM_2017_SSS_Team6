@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <omp.h>
 
 namespace py = pybind11;
 std::vector<py::array> form_JK(py::array_t<double> I,
@@ -23,6 +22,7 @@ std::vector<py::array> form_JK(py::array_t<double> I,
     size_t n2 = n*n;
    // Form J and K
 
+
     for(size_t p = 0; p < n; p++)
     {
         size_t pn3 = p*n3;
@@ -34,10 +34,9 @@ std::vector<py::array> form_JK(py::array_t<double> I,
             size_t pn3qn2 = pn3 + q * n2;
             size_t pn3qn = pn3 + q * n;
             size_t qn = q*n;
-#pragma omp parallel for schedule(dynamic) reduction(+: jqp, kqp)
+#pragma omp parallel for reduction(+; jqp, kqp)
             for(size_t r = 0; r < n; r++)
             {
-                std::cout << omp_get_thread_num() << std::endl;
                 size_t pn3qn2rn = pn3qn2 + r * n;
                 size_t pn3qnrn2 = pn3qn + r * n2;
                 jqp += I_data[pn3qn2rn + r] * D_data[r * n + r];
