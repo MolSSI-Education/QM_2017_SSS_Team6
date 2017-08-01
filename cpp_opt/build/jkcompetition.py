@@ -29,8 +29,7 @@ td = time.time()
 
 # Your implementation
 t0 = time.time()
-J, K = jk.form_JK(I,D - np.identity(D.shape[0])*D*0.5)  
-#J, K = jk.form_JK(I,D)  
+J, K = jk.form_JK(I,D)  
 t1 = time.time()
 
 print(K-K_ref)

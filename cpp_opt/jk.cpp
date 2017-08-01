@@ -35,8 +35,15 @@ std::vector<py::array> form_JK(py::array_t<double> I,
                 size_t pn3qn2rn = pn3qn2 + r * n;
                 for(size_t s = r; s < n; s++)
                 {
+                    if(s == r)
+                    {
+                    J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s];
+                    }
+                    else
+                    {
                     //J_data[p*n + q] += I_data[p * n3 + q * n2 + r * n + s] * D_data[r * n + s]*2.0;
                     J_data[pn + q] += I_data[pn3qn2rn + s] * D_data[r * n + s]*2.0;
+                    }
                 }
             }
         J_data[q*n + p] = J_data[p*n + q];
@@ -50,16 +57,8 @@ std::vector<py::array> form_JK(py::array_t<double> I,
                 size_t pn3qnrn2 = pn3qn + r * n2;
                 for(size_t s = 0; s < n; s++)
                 {
-                    if(s == r)
-                    {
-                    //K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s]*2.0;
-                    K_data[pn + q] += I_data[pn3qnrn2 + s] * D_data[r * n + s]*2.0;
-                    }
-                    else
-                    {
                     //K_data[p*n + q] += I_data[p * n3 + r * n2 + q * n + s] * D_data[r * n + s];
                     K_data[pn + q] += I_data[pn3qnrn2 + s] * D_data[r * n + s];
-                    }
                     
                 }
             }
